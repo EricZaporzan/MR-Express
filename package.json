@@ -6,6 +6,7 @@
     "buildDir": "./dist"
   },
   "scripts": {
+    "server": "node ./server/app.js",
     "watch": "NODE_ENV=development webpack-dev-server --content-base ./dist/ --inline --hot --host=0.0.0.0 --port=9000",
     "build-dev": "NODE_ENV=development webpack -p --config ./webpack.config.js",
     "build": "NODE_ENV=production webpack -p --config ./webpack.config.js",
