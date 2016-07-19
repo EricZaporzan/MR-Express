@@ -1,6 +1,10 @@
 express = require('express');
 path = require('path');
 
+routes = require('./routes');
+db = require('./lib/db');
+User = require('./models/user');
+
 const app = express();
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -13,9 +17,7 @@ app.get('/', (req, res) => {
   res.sendFile(publicPath + '/index.html')
 });
 
-app.get('/api-example', (req, res) => {
-  res.send({title:"hello world!"});
-});
+app.use('/api', routes);
 
 app.listen(port, () => {
   console.log('Listening on port ' + port);

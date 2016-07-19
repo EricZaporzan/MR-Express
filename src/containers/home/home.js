@@ -20,6 +20,11 @@ const Home = {
           'Counter ', m('i.fa.fa-arrow-right'),
         ])
       ),
+      m('p',
+        m('a', { href: '/backend', config: m.route }, [
+          'Backend ', m('i.fa.fa-arrow-right'),
+        ])
+      ),
     ]);
   },
 };

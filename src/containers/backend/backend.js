@@ -3,14 +3,13 @@ import fetchival from 'fetchival';
 
 const Backend = {
   controller(props) {
-    const endpointVal = m.prop("");
+    const endpointVal = m.prop('');
 
     const getFromEndpoint = (e) => {
-      fetchival('/api-example').get().then(data => {
+      fetchival('/api/example').get().then(data => {
         endpointVal(data.title);
         m.redraw();
       });
-
     }
 
     return {

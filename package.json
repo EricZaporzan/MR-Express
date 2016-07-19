@@ -48,6 +48,7 @@
     "lost": "^7.0.3",
     "midux": "^0.1.8",
     "mithril": "^0.2.5",
+    "mongoose": "^4.5.5",
     "postcss": "^5.1.0",
     "postcss-cssnext": "^2.7.0",
     "postcss-extend": "^1.0.4",
