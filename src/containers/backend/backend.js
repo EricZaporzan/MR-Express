@@ -6,7 +6,11 @@ const Backend = {
     const endpointVal = m.prop("");
 
     const getFromEndpoint = (e) => {
-      fetchival('/api-example').get().then(data => { endpointVal(data.title) })
+      fetchival('/api-example').get().then(data => {
+        endpointVal(data.title);
+        m.redraw();
+      });
+
     }
 
     return {
