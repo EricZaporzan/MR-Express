@@ -1,7 +1,8 @@
-const router = require('express').Router();
+const router = require('koa-router')();
 
-router.get('/example', function(req, res) {
-    res.json({'title':'hello world!'});
-});
+router
+  .get('/example', function *(next) {
+    this.body = {'title':'hello world!'};
+  });
 
-module.exports = router;
+module.exports = router.routes();
