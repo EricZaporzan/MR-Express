@@ -1,23 +1,28 @@
-express = require('express');
+koa = require('koa');
 path = require('path');
 
-routes = require('./routes');
+serverRouter = require('./routes');
 db = require('./lib/db');
 User = require('./models/user');
 
-const app = express();
+const app = koa();
 
 const isProd = process.env.NODE_ENV === 'production';
 const port = isProd ? process.env.PORT : 8080;
 const publicPath = path.resolve('dist');
 
-app.use(express.static(publicPath));
+app.use(require('koa-static')(publicPath));
 
-app.get('/', (req, res) => {
-  res.sendFile(publicPath + '/index.html')
-});
+const baseRouter = require('koa-router')();
 
-app.use('/api', routes);
+baseRouter
+  .get('/', (req, res) => {
+    res.sendFile(publicPath + '/index.html')
+  });
+
+baseRouter.use('/api', serverRouter);
+
+app.use(baseRouter.routes());
 
 app.listen(port, () => {
   console.log('Listening on port ' + port);
