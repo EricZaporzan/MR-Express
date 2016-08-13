@@ -5,17 +5,17 @@ const Backend = {
   oninit(vnode) {
     vnode.state.endpointVal = '...';
 
-    vnode.state.getFromEndpoint = (e) => {
+    vnode.state.getFromEndpoint = () => {
       fetchival('/api/example').get()
       .then(data => {
         vnode.state.endpointVal = data.title;
       })
-      .catch(err => {
-        vnode.state.endpointVal = "totally impossible to fetch right now, sorry.";
+      .catch(() => {
+        vnode.state.endpointVal = 'totally impossible to fetch right now, sorry.';
       })
       .then(() => {
         m.redraw();
-      })
+      });
     };
   },
 
