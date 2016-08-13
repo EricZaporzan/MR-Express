@@ -1,19 +1,17 @@
 import m from 'mithril';
 
-import { connect } from '../../store';
-import { updateTitle } from '../../actions/page';
 import mReduxImage from '../../img/m-redux.png';
 
 const Home = {
-  view(ctrl, props) {
-    const { title, actions } = props;
-
+  oninit(vnode) {
+    vnode.state.title = '';
+  },
+  view(vnode) {
     return m('.Home', [
       m('img', { src: mReduxImage, alt: 'Mithril Redux' }),
-      m('h1', title),
+      m('h1', vnode.state.title),
       m('input', {
-        oninput: (e) => actions.updateTitle(e.target.value),
-        value: title,
+        value: vnode.state.title,
       }),
       m('p',
         m('a', { href: '/counter', config: m.route }, [
@@ -29,4 +27,4 @@ const Home = {
   },
 };
 
-export default connect(state => state.page, { updateTitle })(Home);
+export default Home;

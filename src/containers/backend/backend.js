@@ -2,7 +2,7 @@ import m from 'mithril';
 import fetchival from 'fetchival';
 
 const Backend = {
-  controller(props) {
+  oninit(props) {
     const endpointVal = m.prop('...');
 
     const getFromEndpoint = (e) => {
