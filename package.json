@@ -1,7 +1,7 @@
 {
-  "name": "mithril-redux-starter-webpack",
-  "version": "0.1.10",
-  "description": "Mithril Redux + Webpack",
+  "name": "mithril-koa-starter-webpack",
+  "version": "0.2.0",
+  "description": "Mithril and Koa + Webpack",
   "config": {
     "buildDir": "./dist"
   },
