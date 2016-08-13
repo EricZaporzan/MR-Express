@@ -2,36 +2,29 @@ import m from 'mithril';
 import fetchival from 'fetchival';
 
 const Backend = {
-  oninit(props) {
-    const endpointVal = m.prop('...');
+  oninit(vnode) {
+    vnode.state.endpointVal = '...';
 
-    const getFromEndpoint = (e) => {
+    vnode.state.getFromEndpoint = (e) => {
       fetchival('/api/example').get()
       .then(data => {
-        endpointVal(data.title);
+        vnode.state.endpointVal = data.title;
       })
       .catch(err => {
-        endpointVal("totally impossible to fetch right now, sorry.");
+        vnode.state.endpointVal = "totally impossible to fetch right now, sorry.";
       })
       .then(() => {
         m.redraw();
       })
-    }
-
-    return {
-      endpointVal,
-      getFromEndpoint
-    }
+    };
   },
 
-  view(ctrl, props) {
-    const { actions, count } = props;
-
+  view(vnode) {
     return m('.Backend', [
-      m('h1', `Title retrieved from the endpoint is ${ctrl.endpointVal()}`),
-      m('button', { onclick: ctrl.getFromEndpoint }, 'click me!'),
+      m('h1', `Title retrieved from the endpoint is ${vnode.state.endpointVal}`),
+      m('button', { onclick: vnode.state.getFromEndpoint }, 'click me!'),
       m('p',
-        m('a', { href: '/', config: m.route }, [
+        m('a', { href: '/', oncreate: m.route.link }, [
           'Home ', m('i.fa.fa-arrow-left'),
         ])
       ),
