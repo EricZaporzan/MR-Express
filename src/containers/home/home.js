@@ -4,15 +4,15 @@ import mithrilImg from '../../img/mithril.png';
 
 const Home = {
   oninit(vnode) {
-    vnode.state.title = 'Mithril!';
+    vnode.state.title = 'Mithril rules!';
   },
   view(vnode) {
     return m('.Home', [
       m('img', { src: mithrilImg, alt: 'Mithril' }),
       m('a', {
-        href: 'https://youtu.be/8aShfolR6w8?t=69',
+        href: 'http://mithril.js.org',
         target: '_blank',
-      }, vnode.state.title ? vnode.state.title : 'Mithril!'),
+      }, vnode.state.title ? vnode.state.title : 'Mithril rules!'),
       m('input', {
         oninput: m.withAttr('value', (val) => { vnode.state.title = val; }),
         value: vnode.state.title,
