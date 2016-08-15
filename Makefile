@@ -1,11 +1,13 @@
-dev:
-	npm run build-dev && npm run server
-
 dev-client:
-	npm run watch
+	cd client && npm run watch
 
 compile-assets:
-	npm run build
+	cd client && npm run build
 
 compile-assets-dev:
-	npm run build-dev
+	cd client && npm run build-dev
+
+run-server:
+	cd server && npm run server
+
+dev: compile-assets-dev run-server

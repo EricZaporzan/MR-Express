@@ -9,7 +9,9 @@ const app = koa();
 
 const isProd = process.env.NODE_ENV === 'production';
 const port = isProd ? process.env.PORT : 8080;
-const publicPath = path.resolve('dist');
+const publicPath = path.resolve('../client/dist');
+
+console.log(publicPath)
 
 app.use(require('koa-static')(publicPath));
 
