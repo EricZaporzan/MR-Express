@@ -1,29 +1,29 @@
-User = require('../models/user');
+const User = require('../models/user');
 
-create = () => {
+const create = () => {
 
-}
+};
 
-update = () => {
+const update = () => {
 
-}
+};
 
-show = () => {
+const show = () => {
 
-}
+};
 
-index = () => {
+const index = () => {
 
-}
+};
 
-destroy = () => {
+const destroy = () => {
 
-}
+};
 
 module.exports = {
   create,
   update,
   show,
   index,
-  destroy
-}
+  destroy,
+};

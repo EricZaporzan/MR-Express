@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "no-param-reassign": "off" # Disabling for mithril state implementation.
+  }
+}
